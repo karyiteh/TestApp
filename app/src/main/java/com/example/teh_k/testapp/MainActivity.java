@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,4 +49,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Creates the options menu on the app bar.
+     * @param menu  The menu item to be passed in.
+     * @return  true if options menu is created successfully.
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_appbar, menu);
+        return true;
+    }
 }
