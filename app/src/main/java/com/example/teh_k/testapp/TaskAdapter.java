@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.support.v4.content.ContextCompat.startActivity;
 
@@ -28,7 +29,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         public ConstraintLayout row;
         public TextView taskView;
 
-
         /**
          * Default constructor. Creates the view of the data item.
          * @param itemView  View used to display content.
@@ -37,6 +37,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             super(itemView);
             row = (ConstraintLayout) itemView.findViewById(R.id.a_row);
             taskView = (TextView) itemView.findViewById(R.id.a_task);
+
+            // IMPORTANT: Set the onclick listener.
+            row.setOnClickListener(this);
         }
 
         /**
@@ -52,6 +55,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             // Gets the task that is tapped on.
             int position = getAdapterPosition();
             String task = dataset[position];
+            //Toast.makeText(v.getContext(), task, Toast.LENGTH_LONG).show();
 
             // Passes the task that is tapped on to the next Activity.
             taskIntent.putExtra(MainActivity.TASK_TITLE, task);

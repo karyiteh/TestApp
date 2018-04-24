@@ -24,6 +24,12 @@ public class DisplayTaskActivity extends AppCompatActivity {
         appbar = findViewById(R.id.appbar_displaytask);
         taskTitle = findViewById(R.id.tasktitle);
 
+        // Making the app bar.
+        setSupportActionBar(appbar);
+
+        // Setting the up button in the app bar.
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         // Getting the intent that started this activity, and extract what task it was.
         Intent intent = getIntent();
         String title = intent.getStringExtra(MainActivity.TASK_TITLE);
