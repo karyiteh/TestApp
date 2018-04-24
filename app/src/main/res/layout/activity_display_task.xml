@@ -2,14 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/displaytask"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".DisplayTaskActivity">
 
     <!-- For the toolbar on the top. -->
     <android.support.v7.widget.Toolbar
-        android:id="@+id/appbar"
+        android:id="@+id/appbar_displaytask"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -19,12 +20,12 @@
         app:title="Tasks"
         app:titleTextColor="@android:color/background_light" />
 
-    <!-- For the list -->
-    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:name="taskRecyclerView"
-        android:id="@+id/tasks"
+    <TextView
+        android:id="@+id/tasktitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:showIn="@layout/activity_main" />
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:text="TextView"
+        android:textSize="36sp" />
+
 </LinearLayout>

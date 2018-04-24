@@ -8,11 +8,19 @@ import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+    // XML elements on the screen.
     private Toolbar appbar;
     private RecyclerView tasklist;
     private RecyclerView.Adapter tasklistAdapter;
     private RecyclerView.LayoutManager tasklistLayout;
 
+    // Intent key.
+    public static final String TASK_TITLE = "com.example.teh_k.testapp.TITLE";
+
+    /**
+     * Creates the main screen. Called when main page is loaded.
+     * @param savedInstanceState    The last instance state that the activity is in.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

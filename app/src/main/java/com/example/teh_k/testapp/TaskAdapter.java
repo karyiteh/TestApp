@@ -1,5 +1,6 @@
 package com.example.teh_k.testapp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -8,22 +9,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import static android.support.v4.content.ContextCompat.startActivity;
+
 /**
  * TaskAdapter is a class that links the data from the dataset into the UI.
  * Basically creates the items in the list show on the screen.
  */
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
-    private String[] dataset;
+    String[] dataset;
 
     /**
      * Provides reference to the views for each data item.
      */
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         // Each item in this case is just a text view.
         public ConstraintLayout row;
         public TextView taskView;
+
 
         /**
          * Default constructor. Creates the view of the data item.
@@ -33,6 +37,28 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             super(itemView);
             row = (ConstraintLayout) itemView.findViewById(R.id.a_row);
             taskView = (TextView) itemView.findViewById(R.id.a_task);
+        }
+
+        /**
+         * On Click listener method. Called when an item is clicked on.
+         * @param v The view that is clicked on.
+         */
+        @Override
+        public void onClick(View v) {
+
+            // Starts a new activity that shows the item in detail.
+            Intent taskIntent = new Intent(v.getContext(), DisplayTaskActivity.class);
+
+            // Gets the task that is tapped on.
+            int position = getAdapterPosition();
+            String task = dataset[position];
+
+            // Passes the task that is tapped on to the next Activity.
+            taskIntent.putExtra(MainActivity.TASK_TITLE, task);
+
+            // Start the next activity.
+            (v.getContext()).startActivity(taskIntent);
+
         }
     }
 
