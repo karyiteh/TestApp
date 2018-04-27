@@ -83,7 +83,7 @@ before_script:
 
 - android list targets
 
-- echo no | android create avd --force --name test --target android-27 --abi armeabi-v7a    #Create AVD for given api
+- echo no | android create avd --force --name test --target android-27    #Create AVD for given api
 
 - emulator -avd test -no-skin -no-audio -no-window &
 
