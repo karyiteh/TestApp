@@ -81,11 +81,7 @@ android:
 
 before_install:
 
-- export EMULATOR="system-images;android-${ANDROID_API};${TAG};${ABI}" # Used to install/create emulator
-
-- yes | sdkmanager "platforms;android-27"
-
-- yes | sdkmanager "build-tools;27.0.3"
+- export EMULATOR="system-images;android-25;${TAG};${ABI}" # Used to install/create emulator
 
 - chmod +x gradlew
 
