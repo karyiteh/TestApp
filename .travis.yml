@@ -81,7 +81,9 @@ before_install:
 
 before_script:
 
-- echo no | android create avd --force -n test -t android-$EMULATOR_API --abi armeabi-v7a
+- android list targets
+
+- echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI    #Create AVD for given api
 
 - emulator -avd test -no-skin -no-audio -no-window &
 
