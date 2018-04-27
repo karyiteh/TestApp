@@ -81,6 +81,8 @@ env:
 
  - chmod +x gradlew
 
+- ./gradlew dependencies || true
+
 
  before_script:
 
