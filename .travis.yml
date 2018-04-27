@@ -1,24 +1,24 @@
-#Parameters for the travis build file
+# Parameters for the travis build file
 language: android
 sudo: required
 
 # Prevents cache from being uploaded
 before_cache:
-  -rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-  -rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 cache:
   directories:
-  -$HOME/.gradle/caches/
-  -$HOME/.gradle/wrapper/
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
 
 # Specifies the variables used in build.
 env:
   global:
-  -ANDROID_API=27
-  -EMULATOR_API=21
-  -ANDROID_BUILD_TOOLS=27
-  -ADB_INSTALL_TIMEOUT=5 # minutes
+  - ANDROID_API=27
+  - EMULATOR_API=21
+  - ANDROID_BUILD_TOOLS=27
+  - ADB_INSTALL_TIMEOUT=5 # minutes
 
 # Components used in building the app.
 android:
