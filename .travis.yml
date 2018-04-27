@@ -97,7 +97,7 @@ before_script:
 
 - android list targets
 
-- echo no | avdmanager create avd -n test -k "$EMULATOR" -f --abi "$ABI" --tag "$TAG" # Creates the emulator
+- echo no | android create avd --force -n test -t android-25 --abi google_apis/armeabi-v7a
 
 - emulator -avd test -no-skin -no-audio -no-window &
 
