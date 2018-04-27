@@ -53,9 +53,9 @@ android:
 
   - addon-google_apis-google-19 # google play services
 
-  - sys-img-armeabi-v7a-android-$ANDROID_API
+  - sys-img-armeabi-v7a-android-27
 
-  - sys-img-armeabi-v7a-android-$EMULATOR_API
+  - sys-img-armeabi-v7a-android-21
 
   - sys-img-armeabi-v7a-android-25
 
@@ -85,7 +85,7 @@ before_script:
 
 - android list targets
 
-- echo no | android create avd --force --name test --target android-27    #Create AVD for given api
+- echo no | android create avd --force --name test --target android-27 --abi armeabi-v7a   #Create AVD for given api
 
 - emulator -avd test -no-skin -no-audio -no-window &
 
