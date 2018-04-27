@@ -73,6 +73,10 @@ env:
 
  before_install:
 
+ - yes | sdkmanager "platforms;android-27"
+
+ - yes | sdkmanager "build-tools;27.0.3"
+
  - chmod +x gradlew
 
 
