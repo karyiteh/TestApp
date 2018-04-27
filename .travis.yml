@@ -41,6 +41,8 @@ android:
 
   - platform-tools
 
+  - tools
+
   - build-tools-$ANDROID_BUILD_TOOLS
 
   - android-$ANDROID_API
