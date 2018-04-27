@@ -33,7 +33,7 @@ env:
 
  - ADB_INSTALL_TIMEOUT=5 # minutes
 
- android:
+android:
 
   components:
 
@@ -71,7 +71,7 @@ env:
 
 
 
- before_install:
+before_install:
 
  - yes | sdkmanager "platforms;android-27"
 
@@ -81,7 +81,7 @@ env:
 
 
 
- before_script:
+before_script:
 
  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
 
@@ -93,6 +93,6 @@ env:
 
 
 
- script:
+script:
 
  - "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
