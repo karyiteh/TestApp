@@ -67,6 +67,8 @@ env:
 
   - google-gdk-license-.+
 
+  - '.+'
+
 
 
  before_install:
