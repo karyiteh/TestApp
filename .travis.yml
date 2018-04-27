@@ -107,4 +107,5 @@ install:
 
 script:
 
-- ./gradlew assembleObaGoogleDebug assembleObaAmazonDebug -PdisablePreDex
+- ./gradlew assemble -PdisablePreDex
+- ./gradlew lint
