@@ -33,6 +33,10 @@ env:
 
  - ADB_INSTALL_TIMEOUT=5 # minutes
 
+ - TAG=google_apis
+
+ - ABI=armeabi-v7a
+
 android:
 
   components:
@@ -77,17 +81,27 @@ android:
 
 before_install:
 
- - yes | sdkmanager "platforms;android-27"
+- export EMULATOR="system-images;android-${ANDROID_API};${TAG};${ABI}" # Used to install/create emulator
 
- - yes | sdkmanager "build-tools;27.0.3"
+- yes | sdkmanager "platforms;android-27"
 
- - chmod +x gradlew
+- yes | sdkmanager "build-tools;27.0.3"
+
+- chmod +x gradlew
+
+install:
+
+# Update sdk tools to latest version and install/update components
+  - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
+  - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
+  - echo yes | sdkmanager "$EMULATOR" # Install emulator system image
+
 
 before_script:
 
 - android list targets
 
-- echo no | android create avd --force --name test --target android-27 --abi armeabi-v7a   #Create AVD for given api
+- echo no | avdmanager create avd -n test -k "$EMULATOR" -f --abi "$ABI" --tag "$TAG" # Creates the emulator
 
 - emulator -avd test -no-skin -no-audio -no-window &
 
